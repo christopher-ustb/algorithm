@@ -2,9 +2,6 @@ package io.github.christopher.algorithm.exercise.basic.bag_queue_stack.exer4;
 
 import edu.princeton.cs.algs4.Stack;
 
-/**
- * Created by Christopher.Wang on 2017/1/25.
- */
 public class Parentheses {
 //    public static final Character[] LEFT_PARENTHESES = new Character[]{
 //            '(', '[', '{', '<'
@@ -25,9 +22,7 @@ public class Parentheses {
                 leftParentheses.push(character);
             } else if (RIGHT_PARENTHESES.indexOf(character) >= 0) {
                 char lastLeftParentheses = leftParentheses.pop();
-                if (isCouple(lastLeftParentheses, character)) {
-                    continue;
-                } else {
+                if (!isCouple(lastLeftParentheses, character)) {
                     return false;
                 }
             } else {
