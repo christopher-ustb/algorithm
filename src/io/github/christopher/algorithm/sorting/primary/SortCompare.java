@@ -1,4 +1,4 @@
-package io.github.christopher.algorithm.sort.primary;
+package io.github.christopher.algorithm.sorting.primary;
 
 import edu.princeton.cs.algs4.StdOut;
 import edu.princeton.cs.algs4.StdRandom;

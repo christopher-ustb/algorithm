@@ -1,4 +1,4 @@
-package io.github.christopher.algorithm.basic.unionfind;
+package io.github.christopher.algorithm.fundamentals.unionfind;
 
 /**
  * @author Christopher.Wang 2017/9/6.

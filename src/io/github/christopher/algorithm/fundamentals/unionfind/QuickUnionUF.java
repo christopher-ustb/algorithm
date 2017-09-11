@@ -1,12 +1,12 @@
-package io.github.christopher.algorithm.basic.unionfind;
+package io.github.christopher.algorithm.fundamentals.unionfind;
 
 /**
  * @author Christopher.Wang 2017/9/6.
  */
-public class UF {
+public class QuickUnionUF {
     private int[] id;
     private int count;
-    public UF(int N) {
+    public QuickUnionUF(int N) {
         count = N;
         id = new int[N];
         for (int i = 0; i < N; i++) {
@@ -20,9 +20,18 @@ public class UF {
         return find(p) == find(q);
     }
     public int find(int p) {
-        return 0;
+        while (p != id[p]) {
+            p = id[p];
+        }
+        return p;
     }
     public void union(int p, int q) {
-
+        int pRoot = find(p);
+        int qRoot = find(q);
+        if (pRoot == qRoot) {
+            return;
+        }
+        id[pRoot] = qRoot;
+        count --;
     }
 }

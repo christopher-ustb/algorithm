@@ -1,4 +1,4 @@
-package io.github.christopher.algorithm.sort.primary;
+package io.github.christopher.algorithm.sorting.primary;
 
 import edu.princeton.cs.algs4.In;
 import edu.princeton.cs.algs4.StdOut;
@@ -6,22 +6,8 @@ import edu.princeton.cs.algs4.StdOut;
 /**
  * @author Christopher.Wang 2017/9/7.
  */
-public class Shell {
-    public static void sort(Comparable[] a){
-        final int N = a.length;
-        int h = 1;
-        while (h < N / 3) {
-            h = 3 * h + 1;
-        }
-        while (h >= 1) {
-            for (int i = h; i < N; i++) {
-                for (int j = i; j >= h && less(a[j], a[j - h]); j -= h) {
-                    exch(a, j, j - h);
-                }
-            }
-            h = h/3;
-        }
-    }
+public class Example {
+    public static void sort(Comparable[] a){}
 
     private static boolean less(Comparable v, Comparable w) {
         return v.compareTo(w) < 0;
@@ -55,4 +41,5 @@ public class Shell {
         assert isSorted(a);
         show(a);
     }
+
 }

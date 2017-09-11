@@ -1,4 +1,4 @@
-package io.github.christopher.algorithm.sort.quick;
+package io.github.christopher.algorithm.sorting.quick;
 
 import edu.princeton.cs.algs4.In;
 import edu.princeton.cs.algs4.StdOut;
@@ -7,7 +7,7 @@ import edu.princeton.cs.algs4.StdRandom;
 /**
  * @author Christopher.Wang 2017/9/8.
  */
-public class Quick3Way {
+public class Quick {
     public static void sort(Comparable[] a){
         StdRandom.shuffle(a);
         sort(a, 0, a.length - 1);
@@ -17,20 +17,32 @@ public class Quick3Way {
         if (hi <= lo) {
             return;
         }
-        int lt = lo, i = lo + 1, gt = hi;
+        int j = partition(a, lo, hi);
+        sort(a, lo, j - 1);
+        sort(a, j + 1, hi);
+    }
+
+    private static int partition(Comparable[] a, int lo, int hi) {
+        int i = lo, j = hi + 1;
         Comparable v = a[lo];
-        while (i <= gt) {
-            int cmp = a[i].compareTo(v);
-            if (cmp < 0) {
-                exch(a, lt ++, i ++);
-            } else if (cmp > 0) {
-                exch(a, i, gt);
-            } else {
-                i ++;
+        while (true) {
+            while (less(a[i++], v)) {
+                if (i == hi) {
+                    break;
+                }
             }
+            while (less(v, a[--j])) {
+                if (j == lo) {
+                    break;
+                }
+            }
+            if (i >= j) {
+                break;
+            }
+            exch(a, i, j);
         }
-        sort(a, lo, lt - 1);
-        sort(a, gt + 1, hi);
+        exch(a, lo, j);
+        return j;
     }
 
     private static boolean less(Comparable v, Comparable w) {

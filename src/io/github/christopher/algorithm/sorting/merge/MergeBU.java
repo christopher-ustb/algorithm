@@ -1,4 +1,4 @@
-package io.github.christopher.algorithm.sort.merge;
+package io.github.christopher.algorithm.sorting.merge;
 
 import edu.princeton.cs.algs4.In;
 import edu.princeton.cs.algs4.StdOut;
