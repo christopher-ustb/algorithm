@@ -1,5 +1,7 @@
 package io.github.christopher.algorithm.searching.symboltables;
 
+import edu.princeton.cs.algs4.Queue;
+
 /**
  * @author Christopher.Wang 2017/9/11.
  */
@@ -51,4 +53,13 @@ public class SequentialSearchST<Key, Value> {
         return size;
     }
 
+    public Iterable<Key> keys() {
+        Queue<Key> queue = new Queue<Key>();
+        Node x = first;
+        while (x != null) {
+            queue.enqueue(x.key);
+            x = first.next;
+        }
+        return queue;
+    }
 }

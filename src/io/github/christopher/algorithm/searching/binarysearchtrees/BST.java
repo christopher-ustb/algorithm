@@ -1,4 +1,4 @@
-package io.github.christopher.algorithm.searching.binarysearchtree;
+package io.github.christopher.algorithm.searching.binarysearchtrees;
 
 import edu.princeton.cs.algs4.Queue;
 
