@@ -45,4 +45,8 @@ public class WeightedQuickUnionUF {
         }
         count --;
     }
+
+    public int unionSize(int p) {
+        return this.sz[find(p)];
+    }
 }
