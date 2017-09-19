@@ -1,18 +1,18 @@
-package io.github.christopher.algorithm.graphs.undirectedgraphs;
+package io.github.christopher.algorithm.graphs.directedgraphs;
 
 import edu.princeton.cs.algs4.Bag;
 import edu.princeton.cs.algs4.In;
 
 /**
- * 无向图
- * @author Christopher.Wang 2017/9/14.
+ * 有向图
+ * @author Christopher.Wang 2017/9/18.
  */
-public class Graph {
+public class Digraph {
     private final int V;
     private int E;
     private Bag<Integer>[] adj;
 
-    public Graph(int V) {
+    public Digraph(int V) {
         this.V = V;
         this.E = 0;
         adj = (Bag<Integer>[]) new Bag[V];
@@ -21,7 +21,7 @@ public class Graph {
         }
     }
 
-    public Graph(In in) {
+    public Digraph(In in) {
         this(in.readInt());
         int E = in.readInt();
         for (int i = 0; i < E; i++) {
@@ -41,11 +41,24 @@ public class Graph {
 
     public void addEdge(int v, int w) {
         adj[v].add(w);
-        adj[w].add(v);
         E ++;
     }
 
     public Iterable<Integer> adj(int v) {
         return adj[v];
+    }
+
+    /**
+     * 有向图取反
+     * @return 有向图的副本
+     */
+    public Digraph reverse() {
+        Digraph R = new Digraph(this.V);
+        for (int i = 0; i < this.V; i++) {
+            for (Integer w : this.adj(i)) {
+                R.addEdge(w, i);
+            }
+        }
+        return R;
     }
 }
