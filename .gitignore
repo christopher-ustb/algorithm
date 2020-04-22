@@ -3,3 +3,5 @@
 /algs4-data.zip
 /.idea
 *.iml
+.idea
+/*.iml
